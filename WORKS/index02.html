@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORKS</title>
+    <link rel="icon" type="image/x-icon" href="BBlogo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'VioletSans';
+            src: url('VioletSans-Regular.otf') format('opentype');
+        }
+
+        * {
+			margin:5px;
+			margin-top:0;
+			margin-bottom:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Sans TC', sans-serif;
+        }
+        body {
+			background-color:#8D8DFD;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+        #header, #footer {
+			position: static;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content:space-between;
+        }
+		#header{
+			margin-top: 10px;
+		}
+		#footer{
+			padding-bottom: 5px;
+		}
+		#title{
+			color:#B9FF2D;
+			text-align:left;
+			font-size:16px;
+			padding: 5px ;
+			margin-top: 5px;
+			margin-left:33.5px;
+		}
+		#nav{
+			text-align:right;
+			margin-right:20px;
+			margin-left:50px;
+			margin-top: 5px;
+			display: flex;
+			justify-content: flex-end;
+		}
+		#nav a{
+			color:#B9FF2D;
+			display: inline-block;
+			text-decoration: none;
+			padding-right:0;
+			padding-left:40px;
+			margin: 5px auto;
+			text-align: center;
+			border-radius: 5px;
+			font-size: 16px;
+			font-family: 'VioletSans', sans-serif;
+			transition: color 0.3s ease;
+			-webkit-tap-highlight-color: transparent;
+		}
+		#nav a:hover,
+		#nav a:active {
+			color: #666666;
+		}
+        #content {
+            flex: 1;
+            display: flex;
+            padding-top: 20px;
+        }
+		.gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+            transform: translateY(-45px);
+        }
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            padding: 10px;
+            color: #B9F640;
+            position: relative;
+            margin: 0;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+        }
+		.text-container{
+			display:flex;
+			flex-direction:row;
+			gap:150px;
+		}
+		#copyright{
+			padding-left:31px;
+			color:#B9FF2D;
+			font-family: 'IBM Plex Sans TC', sans-serif;
+		}
+
+		#icon {
+            display: flex;
+            flex-direction: row;
+            margin-right: 20px;
+            gap: -1px;
+        }
+
+        #icon img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            margin: 0;
+            padding: 0;
+            transform: translateX(-5px);
+        }
+
+        #icon a {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            margin: 0;
+            color: white;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+            text-decoration: none
+        }
+
+        /* 電腦版：滑鼠懸停效果 */
+        @media (hover: hover) {
+            .gallery-item:hover .overlay {
+                opacity: 1;
+            }
+        }
+
+        /* 手機平板：點擊效果 */
+        @media (hover: none) {
+            .overlay.active {
+                opacity: 1;
+            }
+        }
+
+        /* 最小手機 (320px-374.98px) */
+        @media (min-width: 320px) and (max-width: 374.98px) {
+            body {
+                max-width: 374.98px;
+                transform: none;
+                padding: 0 3px;
+            }
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(20px);
+                margin-top: -4px;
+            }
+
+            #nav a {
+                font-size: 7px;
+                padding-left: 20px;
+            }
+
+            #title {
+                font-size: 7px;
+                margin-top: 7px;
+                margin-left: 7px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #title .exhibition-name-1 {
+                display: block;
+                margin-bottom: 2px;
+                transform: translateX(-9px);
+            }
+
+            #title .exhibition-name-2 {
+                display: block;
+                margin-top: 0;
+                transform: translateX(-1px);
+            }
+
+            #title span {
+                margin: 0;
+                padding: 0;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px;
+                gap: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+                transform: translateY(-45px);
+            }
+
+            .gallery-item {
+                padding: 10px;
+                transform: scale(1.5);
+                transform-origin: center;
+                margin: 1px;
+                position: relative;
+            }
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+            .overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                font-size: 11px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: -3px;
+            }
+
+            #icon img {
+                width: 15px;
+                height: 15px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 7px;
+                margin-left: -34.5px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 一般手機 (375px-430.98px) */
+        @media (min-width: 375px) and (max-width: 430.98px) {
+            body {
+                max-width: 430.98px;
+                transform: none;
+                padding: 0 3px;
+            }
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(20px);
+                margin-top: -4px;
+            }
+
+            #nav a {
+                font-size: 8px;
+                padding-left: 30px;
+            }
+
+            #title {
+                font-size: 8px;
+                margin-top: 7px;
+                margin-left: 7px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #title .exhibition-name-1 {
+                display: block;
+                margin-bottom: 2px;
+                transform: translateX(-9px);
+            }
+
+            #title .exhibition-name-2 {
+                display: block;
+                margin-top: 0;
+                transform: translateX(-1px);
+            }
+
+            #title span {
+                margin: 0;
+                padding: 0;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px;
+                gap: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+                transform: translateY(-45px);
+            }
+
+            .gallery-item {
+                padding: 10px;
+                transform: scale(1.3);
+                transform-origin: center;
+                margin: 2px;
+                position: relative;
+            }
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+            .overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                font-size: 11px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: -1px;
+            }
+
+            #icon img {
+                width: 15px;
+                height: 15px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 8px;
+                margin-left: -33.5px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 大型手機 (431px-480.98px) */
+        @media (min-width: 431px) and (max-width: 480.98px) {
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(20px);
+                margin-top: -4px;
+            }
+
+            #nav a {
+                font-size: 9px;
+                padding-left: 30px;
+            }
+
+            #title {
+                font-size: 9px;
+                margin-top: 7px;
+                margin-left: 7px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #title .exhibition-name-1 {
+                display: block;
+                margin-bottom: 2px;
+                transform: translateX(-9px);
+            }
+
+            #title .exhibition-name-2 {
+                display: block;
+                margin-top: 0;
+                transform: translateX(-1px);
+            }
+
+            #title span {
+                margin: 0;
+                padding: 0;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px;
+                gap: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+                transform: translateY(-45px);
+            }
+
+            .gallery-item {
+                padding: 10px;
+                transform: scale(1.3);
+                transform-origin: center;
+                margin: 3px;
+                position: relative;
+            }
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+            .overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                font-size: 11px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: -5px;
+            }
+
+            #icon img {
+                width: 20px;
+                height: 20px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 10px;
+                margin-left: -35.5px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 平板 (768px-1023.98px) */
+        @media (min-width: 768px) and (max-width: 1023.98px) {
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(-30px);
+                margin-top: -4px;
+            }
+
+            #nav a {
+                font-size: 13px;
+                padding-left: 80px;
+            }
+
+            #title {
+                font-size: 13px;
+                margin-top: 7px;
+                margin-left: 18px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #title .exhibition-name-1 {
+                display: block;
+                margin-bottom: 2px;
+                transform: translateX(-9px);
+            }
+
+            #title .exhibition-name-2 {
+                display: block;
+                margin-top: 0;
+                transform: translateX(-1px);
+            }
+
+            #title span {
+                margin: 0;
+                padding: 0;
+            }
+
+            .gallery {
+                padding: 20px;
+                gap: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+                transform: translateY(-45px);
+            }
+
+            .gallery-item {
+                padding: 10px;
+                transform: scale(1.3);
+                transform-origin: center;
+                margin: 3px;
+                position: relative;
+            }
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+            .overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                font-size: 11px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: -0.5px;
+            }
+
+            #icon img {
+                width: 25px;
+                height: 25px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 13px;
+                margin-left: -32px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 小型筆電 (1024px-1280.98px) */
+        @media (min-width: 1024px) and (max-width: 1280.98px) {
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(-30px);
+                margin-top: 0.5px;
+            }
+
+            #nav a {
+                font-size: 11px;
+                padding-left: 100px;
+            }
+
+            #title {
+                font-size: 11px;
+                margin-top: 7px;
+                margin-left: 8px
+            }
+
+            .gallery {
+                padding: 20px;
+                gap: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+                transform: translateY(-45px);
+            }
+
+            .gallery-item {
+                padding: 10px;
+                transform: scale(1.2);
+                transform-origin: center;
+                margin: 7px;
+                position: relative;
+            }
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+            .overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                font-size: 13px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: 4.5px;
+            }
+
+            #icon img {
+                width: 25px;
+                height: 25px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 11px;
+                margin-left: -28.5px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 一般筆電 (1281px-1440.98px) */
+        @media (min-width: 1281px) and (max-width: 1440.98px) {
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(-110px);
+                margin-top: 0.5px;
+            }
+
+            #nav a {
+                font-size: 13px;
+                padding-left: 140px;
+            }
+
+            #title {
+                font-size: 13px;
+                margin-top: 5.5px;
+                margin-left: 131.5px
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                padding: 0;
+                gap: 15px;
+                width: 80%;
+                margin: 0 auto;
+                transform: translateY(-45px);
+            }
+
+            .gallery-item {
+                padding: 0;
+                transform: scale(1);
+                transform-origin: center;
+                margin: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                position: relative;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                font-size: 16px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 143px;
+                z-index: 1000;
+                margin-right: 3px;
+            }
+
+            #icon img {
+                width: 25px;
+                height: 25px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 13px;
+                margin-left: 95px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 桌機標準螢幕 (1441px-1920.98px) */
+        @media (min-width: 1441px) and (max-width: 1920.98px) {
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(-112px);
+                margin-top: 0.5px;
+            }
+
+            #nav a {
+                font-size: 13px;
+                padding-left: 140px;
+            }
+
+            #title {
+                font-size: 13px;
+                margin-top: 5.5px;
+                margin-left: 131px
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                padding: 0;
+                gap: 45px;
+                width: 80%;
+                margin: 0 auto;
+                transform: translateY(-45px);
+            }
+
+            .gallery-item {
+                padding: 0;
+                transform: scale(1.1);
+                transform-origin: center;
+                margin: 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                position: relative;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: 100%;
+                height: 100%;
+                font-size: 16px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 142px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: 127.5px;
+            }
+
+            #icon img {
+                width: 25px;
+                height: 25px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 13px;
+                margin-left: -26.5px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 超寬螢幕 (1921px-2560.98px) */
+        @media (min-width: 1921px) and (max-width: 2560.98px) {
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(-170px);
+                margin-top: 0.5px;
+            }
+
+            #nav a {
+                font-size: 17px;
+                padding-left: 140px;
+            }
+
+            #title {
+                font-size: 17px;
+                margin-top: 5.5px;
+                margin-left: 5px
+            }
+
+            .gallery {
+                padding: 20px;
+                gap: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+                transform: translateY(-20px);
+            }
+
+            .gallery-item {
+                padding: 10px;
+                transform: scale(1.3);
+                transform-origin: center;
+                margin: 38px;
+                position: relative;
+            }
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                max-width: none;
+            }
+            .overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                font-size: 17px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: 95px;
+            }
+
+            #icon img {
+                width: 30px;
+                height: 30px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 17px;
+                margin-left: 62.5px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+        }
+
+        /* 4K螢幕 (2561px以上) */
+        @media (min-width: 2561px) {
+            #nav {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-left: -600px;
+                transform: translateX(-170px);
+                margin-top: 0.5px;
+            }
+
+            #nav a {
+                font-size: 17px;
+                padding-left: 140px;
+            }
+
+            #title {
+                font-size: 17px;
+                margin-top: 5.5px;
+                margin-left: 5px
+            }
+
+            .gallery {
+                padding: 20px;
+                gap: 30px;
+                max-width: 100%;
+                margin: 0 auto;
+                transform: translateY(-20px);
+            }
+
+            .gallery-item {
+                padding: 10px;
+                transform: scale(1.3);
+                transform-origin: center;
+                margin: 38px;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                margin: 0;
+                color: white;
+                text-align: center;
+                width: calc(100% - 20px);
+                font-size: 17px;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                margin-right: 95px;
+            }
+
+            #icon img {
+                width: 30px;
+                height: 30px;
+                margin-left: 15px;
+            }
+
+            #copyright {
+                font-size: 17px;
+                margin-left: 62.5px
+            }
+
+            #content {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            #header, #footer {
+                position: static;
+            }
+
+        }
+
+        /* 標題中的英文部分使用VioletSans */
+        /*
+        #title .exhibition-name-1 {
+            font-family: 'VioletSans', sans-serif;
+            margin-right: 0px;
+        }
+
+        #title .exhibition-name-2 {
+            font-family: 'IBM Plex Sans TC', sans-serif;
+            margin-left: 12px;
+        }
+
+        #title .exhibition-name-2 .number {
+            font-family: 'VioletSans', sans-serif;
+                margin: 0;
+                padding: 0;
+            display: inline;
+        }
+        */
+
+        #copyright span {
+            font-family: 'VioletSans', sans-serif;
+        }
+
+        #title .year-2025 {
+            font-family: 'VioletSans', sans-serif;
+            margin-left: 5px;
+        }
+
+        #title .exhibition-name-1 {
+            font-family: 'VioletSans', sans-serif;
+        }
+
+        #title .exhibition-name-2 {
+            font-family: 'IBM Plex Sans TC', sans-serif;
+            letter-spacing: 0;
+            margin-left: -8px;
+        }
+
+        #title .exhibition-name-2 .number {
+            font-family: 'VioletSans', sans-serif;
+                margin: 0;
+                padding: 0;
+        }
+
+        #copyright .copyright-symbol {
+            font-family: initial;
+            margin-right: 12px;
+        }
+
+        #copyright .year-text {
+            font-family: 'VioletSans', sans-serif;
+            margin-left: 0;
+            letter-spacing: 0em;
+        }
+
+        #copyright .year-text .chinese-text {
+            font-family: 'IBM Plex Sans TC', sans-serif;
+            margin-left: 0em;
+        }
+
+        #copyright .year-text .chinese-text .number {
+            font-family: 'VioletSans', sans-serif;
+        
+                margin: 0;
+                padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+		<div id="title">
+			<span class="exhibition-name-1">NTUB CDM GRADUATION EXHIBITION<span class="year-2025">2025</span></span>
+			<span class="exhibition-name-2">國立臺北商業大學商業設計管理系<span class="number">114</span>級畢業展</span>
+		</div>
+		<div id="nav">
+			<a href="#">ABOUT</a>
+			<a href="#">WORKS</a>
+			<a href="#">ARCHIVE</a>
+		</div>
+	</div>
+		
+    <div id="content">
+        <div class="gallery" id="gallery"></div>
+    </div>
+    <div id="footer">
+		<div id="copyright">
+			<span class="copyright-symbol">©</span><span class="year-text">2025 <span class="chinese-text">國立臺北商業大學商業設計管理系<span class="number">114</span>級畢業展</span></span>
+		</div>
+
+		<div id="icon">
+            <a href="https://www.facebook.com/ntubcdmexhibition" target="_blank"><img src="FB.png"></a>
+            <a href="https://www.instagram.com/ntub_cdm_grad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><img src="IG.png"></a>
+			<img src="icon05.png">
+			<img src="icon06.png">
+		</div>
+	</div>
+</body>
+</html>
+
+<script>
+        // 圖片列表
+        const images = [];
+        // 作品名稱列表
+        const workTitles = [
+            "邊界以外 BEYOND BOUNDARIES ",
+            "Bitdog 比特犬",
+            "Ease fun 鬆",
+            "Exp3 鏈上活動足跡",
+            "全員異常 ALL ERRORS",
+            "TR8CE —茶渣製品專門所",
+            "Well Sans",
+            "入厝-寄居蟹造家行動研究",
+            "生態系",
+            "One mo 探",
+            "回首",
+            "『』（引）",
+            "明閩之中",
+            "知性囝囡仔",
+            "有招一日 AT THE SIGN TIME",
+            "淨潤豆",
+            "數字病",
+            "墨，需有",
+            "媒識"
+        ];
+        // 作品連結列表
+        const workLinks = [
+            "https://example.com/work1",
+            "https://example.com/work2",
+            "https://example.com/work3",
+            "https://example.com/work4",
+            "https://example.com/work5",
+            "https://example.com/work6",
+            "https://example.com/work7",
+            "https://example.com/work8",
+            "https://example.com/work9",
+            "https://example.com/work10",
+            "https://example.com/work11",
+            "https://example.com/work12",
+            "https://example.com/work13",
+            "https://example.com/work14",
+            "https://example.com/work15",
+            "https://example.com/work16",
+            "https://example.com/work17",
+            "https://example.com/work18",
+            "https://example.com/work19"
+        ];
+
+        for (let i = 1; i <= 19; i++) {
+            const fileName = `works/example${String(i).padStart(2, '0')}.jpg`;
+            images.push(fileName);
+        }
+
+        const gallery = document.getElementById("gallery");
+
+        images.forEach((imgSrc, index) => {
+            const item = document.createElement("div");
+            item.classList.add("gallery-item");
+
+            const img = document.createElement("img");
+            img.src = imgSrc;
+            img.alt = workTitles[index];
+            
+            const overlay = document.createElement("a");
+            overlay.classList.add("overlay");
+            overlay.href = workLinks[index];
+            overlay.target = "_blank";
+            overlay.textContent = workTitles[index];
+            
+            item.appendChild(img);
+            item.appendChild(overlay);
+            gallery.appendChild(item);
+
+            // 只在觸控設備上添加點擊事件
+            if ('ontouchstart' in window) {
+                item.addEventListener('click', function() {
+                    // 移除其他項目的active類
+                    document.querySelectorAll('.gallery-item').forEach(el => {
+                        if (el !== item) {
+                            el.querySelector('.overlay').classList.remove('active');
+                        }
+                    });
+                    // 切換當前項目的active類
+                    overlay.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+
+

@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ease Fun 鬆</title>
+    <link rel="icon" type="image/x-icon" href="BBlogo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'VioletSans';
+            src: url('VioletSans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --text-color: #757575;
+            --background-color: #BABABA;
+            --font-violet: 'VioletSans', sans-serif;
+            --font-ibm: 'IBM Plex Sans TC', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-artwork::-webkit-scrollbar {
+            display: block;
+            width: 8px;
+        }
+
+        .project-artwork::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .project-artwork::-webkit-scrollbar-thumb {
+            background: var(--text-color);
+            border-radius: 4px;
+        }
+
+        .project-artwork {
+            width: 55%;
+            height: 100vh;
+            padding: 0;
+            overflow-y: scroll;
+            position: relative;
+            background: none;
+            scrollbar-width: thin;
+            scrollbar-color: var(--text-color) transparent;
+        }
+
+        .artwork-background {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: none;
+        }
+
+        .image-container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding: 32px;
+            background: none;
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            transform: translate(20px, -32px);
+            background: none;
+        }
+
+        .project-content {
+            width: 45%;
+            padding: 32px;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--background-color);
+            position: relative;
+        }
+
+        .scroll-indicator,
+        .scroll-thumb,
+        .project-content::after {
+            display: none;
+        }
+
+        body {
+            font-family: var(--font-ibm);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #header {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: transparent;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        #title {
+            font-family: var(--font-ibm);
+            color: var(--text-color);
+            text-align: left;
+            font-size: 14px;
+            padding: 5px;
+            margin-top: 5px;
+            margin-left: 50px;
+        }
+
+        #title .en {
+            font-family: var(--font-violet);
+        }
+
+        #title .num {
+            font-family: var(--font-violet);
+        }
+
+        .exhibition-name-1 {
+            font-family: var(--font-violet);
+            margin-right: 8px;
+        }
+
+        .exhibition-name-2 {
+            font-family: var(--font-ibm);
+        }
+
+        .number {
+            font-family: var(--font-violet);
+        }
+
+        #title span {
+            font-family: var(--font-ibm);
+        }
+
+        #nav {
+            text-align: right;
+            margin-right: 20px;
+            margin-left: -600px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: flex-start;
+            transform: translateX(-170px);
+        }
+
+        #nav a {
+            font-family: var(--font-violet);
+            color: var(--text-color);
+            display: inline-block;
+            text-decoration: none;
+            padding-right: 0;
+            padding-left: 80px;
+            margin: 5px auto;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #nav a:hover,
+		#nav a:active {
+            color: #B9FF2D;
+            text-decoration: none;
+        }
+
+        main {
+            padding-top: 96px;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            min-height: calc(100vh - 40px);
+            overflow: hidden;
+        }
+
+        .project-showcase {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 136px);
+            overflow: hidden;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+        }
+
+        .project-title {
+            font-family: var(--font-violet);
+            font-size: 51px;
+            color: var(--text-color);
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+            margin-left: 48px;
+            margin-right: 32px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-title:hover,
+        .project-title:active {
+         
+            color: #8D8DFD;
+        }
+
+        .project-title .quote {
+            font-size: 30px;
+        }
+
+        .project-title .text {
+            font-size: 30px;
+        }
+
+        .chinese-title {
+            font-family: var(--font-ibm);
+            display: inline-block;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 16px;
+            letter-spacing: 4px;
+            line-height: 1;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .project-details {
+            margin-top: 0;
+            width: 100%;
+            margin-left: 48px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-info {
+            font-family: var(--font-violet);
+            font-size: 14px;
+            color: var(--text-color);
+            letter-spacing: 2px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-start;
+            padding-top: 0;
+            font-weight: 700;
+            margin-left: 48px;
+            margin-bottom: 32px;
+        }
+
+        .author-info p {
+            font-family: var(--font-violet);
+            margin-bottom: 0;
+            letter-spacing: 2px;
+            line-height: 1;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .project-description {
+            font-family: var(--font-violet);
+            font-size: 16px;
+            line-height: 1.5;
+            width: 90%;
+            letter-spacing: 1px;
+            color: var(--text-color);
+        }
+
+        .chinese-text {
+            font-family: var(--font-ibm);
+            font-weight: 400;
+            color: var(--text-color);
+            margin-bottom: 32px;
+            width: 85%;
+            letter-spacing: 2px;
+            line-height: 1.6;
+            word-spacing: 1px;
+            text-align: justify;
+            font-size: 14px;
+        }
+
+        .english-text {
+            font-family: var(--font-violet);
+            font-weight: 400;
+            color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.6;
+            width: 85%;
+            letter-spacing: 0.5px;
+            word-spacing: 2px;
+            text-align: justify;
+            margin-bottom: 32px;
+        }
+
+        .example-images {
+            margin-top: 0;
+            width: 98%;
+            margin-left: 2px;
+            margin-right: 0;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .example-images img {
+            width: 15%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        #copyright {
+            color: var(--text-color);
+            margin-left: 12px;
+            font-family: var(--font-ibm);
+            position: fixed;
+            bottom: 12px;
+            left: 60px;
+            font-size: 14px;
+            z-index: 2;
+            background: none;
+        }
+
+        #copyright .copyright-symbol {
+            font-family: initial;
+        }
+
+        #copyright .year-text {
+            font-family: var(--font-violet), var(--font-ibm);
+            margin-left: 5px;
+        }
+
+        #footer {
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            background: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #icon {
+            position: fixed;
+            bottom: 12px;
+            right: 60px;
+            display: flex;
+            flex-direction: row;
+            z-index: 2;
+            background: none;
+        }
+
+        #icon img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            margin: 0 8px;
+        }
+
+        .logo-box {
+            display: none;
+        }
+
+        /* 一般手機 (320px-430px) */
+        @media screen and (min-width: 320px) and (max-width: 430.98px) {
+            body {
+                max-width: 430.98px;
+                transform: none;
+                transform-origin: top center;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin: 0 auto;
+            }
+
+            #header {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: 100%;
+                background-color: transparent;
+                z-index: 1000;
+                padding: 10px 0;
+            }
+
+            #footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: transparent;
+                z-index: 1000;
+                padding: 10px 0;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 14px;
+                left: 15px;
+                font-size: 8px;
+                z-index: 1000;
+                background-color: transparent;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 12px;
+                right: 23px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                z-index: 1000;
+                background-color: transparent;
+            }
+
+            #icon img {
+                width: 15px;
+                height: 15px;
+                object-fit: contain;
+                margin: 0;
+            }
+
+            .project-showcase {
+                margin-top: -70px;
+                margin-bottom: 60px;
+                height: auto;
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .project-content {
+                width: 100%;
+                order: 1;
+                padding: 16px;
+                height: auto;
+                position: relative;
+                z-index: 2;
+                background-color: var(--background-color);
+                overflow: visible;
+                margin-left: -15px;
+            }
+
+            .project-artwork {
+                width: 100%;
+                height: auto;
+                order: 2;
+                padding: 16px;
+                position: relative;
+                z-index: 1;
+                margin-top: -30px;
+                overflow: visible;
+            }
+
+            #title {
+                font-size: 7px;
+                margin-left: 14.5px;
+                margin-top: -7px;
+            }
+
+            #title .en {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            #title .zh, #title .num {
+                display: inline;
+            }
+
+            #nav {
+                position: fixed;
+                top: 7px;
+                right: 0;
+                z-index: 1000;
+                background-color: transparent;
+                margin-left: -600px;
+                transform: translateX(-12px);
+            }
+
+            #nav a {
+                font-size: 8px;
+                padding-left: 10px;
+            }
+
+            .project-title {
+                margin-top: -13px;
+                margin-bottom: 8px;
+            }
+
+            .project-title .quote {
+                font-size: 20px;
+                margin-left: -25px;
+            }
+
+            .project-title .text {
+                font-size: 20px;
+                margin-left: -5px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+            }
+
+            .author-info {
+                margin-top: 10px;
+                margin-bottom: 16px;
+                margin-left: 27px;
+            }
+
+            .project-description {
+                width: 95%;
+                margin-top: 16px;
+                margin-left: -10px;
+            }
+
+            .chinese-text {
+                font-size: 10px;
+                width: 95%;
+                margin-bottom: 32px;
+                margin-left: -10px;
+            }
+
+            .english-text {
+                font-size: 10px;
+                width: 95%;
+                margin-bottom: 32px;
+                letter-spacing: 0;
+                word-spacing: 1px;
+                margin-left: -10px;
+            }
+
+            .artwork-image {
+                width: 100%;
+                margin: 0 auto;
+                transform: none;
+            }
+
+            .image-container {
+                margin: 0;
+                padding: 16px;
+                margin-top: -30px;
+            }
+
+            .author-info p {
+                font-family: var(--font-violet);
+                margin-bottom: 0;
+                letter-spacing: 1px;
+                line-height: 1;
+                color: var(--text-color);
+                font-weight: 700;
+                font-size: 10px;
+            }
+        }
+
+        /* 大型手機 (431px-480px) */
+        @media screen and (min-width: 431px) and (max-width: 480.98px) {
+            body {
+                max-width: 480.98px;
+                transform: none;
+                transform-origin: top center;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin: 0 auto;
+            }
+
+            #header {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: 100%;
+                background-color: transparent;
+                z-index: 1000;
+                padding: 10px 0;
+            }
+
+            #footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: transparent;
+                z-index: 1000;
+                padding: 10px 0;
+            }
+
+            #copyright {
+                position: fixed;
+                bottom: 12px;
+                left: 19px;
+                font-size: 9px;
+                z-index: 1000;
+                background-color: transparent;
+            }
+
+            #icon {
+                position: fixed;
+                bottom: 12px;
+                right: 23px;
+                z-index: 1000;
+                background-color: transparent;
+            }
+
+            .project-showcase {
+                margin-top: -70px;
+                margin-bottom: 60px;
+                height: auto;
+                flex-direction: column;
+                overflow: visible;
+            }
+
+            .project-content {
+                width: 100%;
+                order: 1;
+                padding: 16px;
+                height: auto;
+                position: relative;
+                z-index: 2;
+                background-color: var(--background-color);
+                overflow: visible;
+                margin-left: -8px;
+            }
+
+            .project-artwork {
+                width: 100%;
+                height: auto;
+                order: 2;
+                padding: 16px;
+                position: relative;
+                z-index: 1;
+                margin-top: -30px;
+                overflow: visible;
+            }
+
+            #title {
+                font-size: 9px;
+                margin-left: 14.5px;
+                margin-top: -5px;
+            }
+
+            #title .en {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            #title .zh, #title .num {
+                display: inline;
+            }
+
+            #nav {
+                position: fixed;
+                top: 7.5px;
+                right: 0;
+                z-index: 1000;
+                background-color: transparent;
+                margin-left: -600px;
+                transform: translateX(-10px);
+            }
+
+            #nav a {
+                font-size: 9px;
+                padding-left: 20px;
+            }
+
+            .project-title {
+                margin-top: -13px;
+                margin-bottom: 8px;
+            }
+
+            .project-title .quote {
+                font-size: 20px;
+                margin-left: -25px;
+            }
+
+            .project-title .text {
+                font-size: 20px;
+                margin-left: -5px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+            }
+
+            .author-info {
+                margin-top: 10px;
+                margin-bottom: 16px;
+                margin-left: 27px;
+            }
+
+            .project-description {
+                width: 95%;
+                margin-top: 16px;
+                margin-left: -10px;
+            }
+
+            .chinese-text {
+                font-size: 11px;
+                width: 95%;
+                margin-bottom: 32px;
+                margin-left: -10px;
+            }
+
+            .english-text {
+                font-size: 11px;
+                width: 95%;
+                margin-bottom: 32px;
+                letter-spacing: 0;
+                word-spacing: 1px;
+                margin-left: -10px;
+            }
+
+            .artwork-image {
+                width: 100%;
+                margin: 0 auto;
+                transform: none;
+            }
+
+            .image-container {
+                margin: 0;
+                padding: 16px;
+                margin-top: -30px;
+            }
+
+            #icon img {
+                width: 20px;
+                height: 20px;
+                object-fit: contain;
+                margin: 0 8px;
+            }
+
+            .author-info p {
+                font-family: var(--font-violet);
+                margin-bottom: 0;
+                letter-spacing: 2px;
+                line-height: 1;
+                color: var(--text-color);
+                font-weight: 700;
+                font-size: 12px;
+            }
+        }
+
+        /* 平板 (768px-1023px) */
+        @media (min-width: 768px) and (max-width: 1023.98px) {
+            body {
+                max-width: 1920px;
+                transform: scale(0.95);
+                transform-origin: top center;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            .project-showcase {
+                height: calc(100vh - 96px);
+            }
+
+            .project-artwork {
+                width: 58%;
+                padding-bottom: 48px;
+            }
+
+            .artwork-image {
+                width: 100%;
+                margin: 0 auto;
+                transform: translate(20px, -27px);
+            }
+
+            .image-container {
+                margin-left: -16px;
+                padding: 16px;
+                padding-bottom: 64px;
+            }
+
+            #title {
+                font-size: 13px;
+                margin-left: 14.5px;
+            }
+
+            #title .en {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            #title .zh, #title .num {
+                display: inline;
+            }
+
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-10px);
+            }
+
+            #nav a {
+                font-size: 13px;
+                padding-left: 70px;
+            }
+
+            .project-content {
+                padding-top: 0;
+            }
+
+            .project-title {
+                margin-top: -13px;
+                margin-bottom: 8px;
+            }
+
+            .project-title .quote {
+                font-size: 25px;
+                margin-left: -25px;
+            }
+
+            .project-title .text {
+                font-size: 25px;
+                margin-left: -5px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+               
+            }
+
+            .author-info {
+                margin-top: 10px;
+                margin-bottom: 16px;
+                margin-left: 27px;
+            }
+
+            .author-info p {
+                font-family: var(--font-violet);
+                margin-bottom: 0;
+                letter-spacing: 0.1px;
+                line-height: 1;
+                color: var(--text-color);
+                font-weight: 700;
+                font-size: 12px;
+            }
+
+            .project-description {
+                width: 95%;
+                margin-top: 16px;
+                margin-left: -10px;
+            }
+
+            .chinese-text {
+                font-size: 11px;
+                width: 95%;
+                margin-bottom: 32px;
+                margin-left: -10px;
+            }
+
+            .english-text {
+                font-size: 11px;
+                width: 95%;
+                margin-bottom: 32px;
+                letter-spacing: 0;
+                word-spacing: 1px;
+                margin-left: -10px;
+            }
+
+            .example-images {
+                margin-top: 0;
+                width: 98%;
+                margin-left: 2px;
+                margin-right: 0;
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .example-images img {
+                width: 15%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            #copyright {
+                font-size: 13px;
+                bottom: -40px;
+                left: 7.5px;
+            }
+
+            #icon {
+                bottom: -40px;
+                right: 22px;
+            }
+            #icon img {
+                width: 25px;
+                height: 25px;
+            }
+           
+        }
+
+        /* 小型筆電 (1024px-1280px) */
+        @media (min-width: 1024px) and (max-width: 1280.98px) {
+            body {
+                max-width: 1920px;
+                transform: none;
+                transform-origin: top center;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+            }
+
+            .project-showcase {
+                height: calc(100vh - 96px);
+            }
+
+            .project-artwork {
+                width: 58%;
+                padding-bottom: 48px;
+            }
+
+            .artwork-image {
+                width: 100%;
+                margin: 0 auto;
+                transform: translate(20px, -27px);
+            }
+
+            .image-container {
+                margin-left: -16px;
+                padding: 16px;
+                padding-bottom: 64px;
+            }
+
+            #title {
+                font-size: 11px;
+                margin-left: 14.5px;
+            }
+
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-22px);
+            }
+
+            #nav a {
+                font-size: 11px;
+                padding-left: 90px;
+            }
+
+            .project-content {
+                padding-top: 0;
+            }
+
+            .project-title {
+                margin-top: -13px;
+                margin-bottom: 8px;
+            }
+
+            .project-title .quote {
+                font-size: 30px;
+            }
+
+            .project-title .text {
+                font-size: 30px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+            }
+
+            .author-info {
+                margin-top: 10px;
+                margin-bottom: 16px;
+            }
+
+            .author-info p {
+                font-family: var(--font-violet);
+                margin-bottom: 0;
+                letter-spacing: 2px;
+                line-height: 1;
+                color: var(--text-color);
+                font-weight: 700;
+                font-size: 12px;
+            }
+
+            .project-description {
+                width: 95%;
+                margin-top: 16px;
+            }
+
+            .chinese-text {
+                font-size: 13px;
+                width: 90%;
+                margin-bottom: 32px;
+            }
+
+            .english-text {
+                font-size: 13px;
+                width: 90%;
+                margin-bottom: 32px;
+            }
+
+            .example-images {
+                margin-top: 0;
+                width: 98%;
+                margin-left: 2px;
+                margin-right: 0;
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .example-images img {
+                width: 15%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            #copyright {
+                font-size: 11px;
+                bottom: 5px;
+                left: 7.5px;
+            }
+
+            #icon {
+                bottom: 5px;
+                right: 32px;
+            }
+            #icon img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        /* 一般筆電 (1281px-1440px) */
+        @media (min-width: 1281px) and (max-width: 1440.98px) {
+            body {
+                max-width: 1440px;
+                transform: none;
+                transform-origin: top center;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .project-showcase {
+                height: calc(100vh - 96px);
+            }
+
+            .project-artwork {
+                width: 58%;
+                padding-bottom: 48px;
+            }
+
+            .artwork-image {
+                width: 85%;
+                margin: 0 auto;
+                transform: translate(1px, -27px);
+            }
+
+            .image-container {
+                margin-left: -16px;
+                padding: 16px;
+                padding-bottom: 64px;
+            }
+
+            #title {
+                font-size: 13px;
+                margin-left: 52px;
+            }
+
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-43px);
+            }
+
+            #nav a {
+                font-size: 13px;
+                padding-left: 110px;
+            }
+
+            .project-content {
+                padding-top: 0;
+                margin-right: 50px;
+                margin-top: -2px;
+            }
+
+            .project-title {
+                margin-top: -13px;
+                margin-bottom: 8px;
+            }
+
+            .project-title .quote {
+                font-size: 30px;
+            }
+
+            .project-title .text {
+                font-size: 30px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+            }
+
+            .author-info {
+                margin-top: 10px;
+                margin-bottom: 16px;
+            }
+
+            .author-info p {
+                font-family: var(--font-violet);
+                margin-bottom: 0;
+                letter-spacing: 2px;
+                line-height: 1;
+                color: var(--text-color);
+                font-weight: 700;
+                font-size: 16px;
+            }
+
+            .project-description {
+                width: 95%;
+                margin-top: 16px;
+            }
+
+            .chinese-text {
+                font-size: 14px;
+                width: 100%;
+                margin-bottom: 32px;
+                margin-top: -6px;
+            }
+
+            .english-text {
+                font-size: 14px;
+                width: 100%;
+                margin-bottom: 32px;
+                margin-top: -6px;
+                letter-spacing: 0.2px;
+                word-spacing: 1px;
+            }
+
+            .example-images {
+                margin-top: 0;
+                width: 98%;
+                margin-left: 2px;
+                margin-right: 0;
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .example-images img {
+                width: 15%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            #copyright {
+                font-size: 13px;
+                bottom: 6px;
+                left: 44px;
+            }
+
+            #icon {
+                bottom: 6px;
+                right: 54px;
+            }
+            #icon img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        /* 桌機標準螢幕 (1441px-1920px) */
+        @media (min-width: 1441px) and (max-width: 1920px) {
+            body {
+                max-width: 1920px;
+                transform: none;
+                transform-origin: top center;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            .project-showcase {
+                height: calc(100vh - 96px);
+            }
+
+            .project-artwork {
+                width: 58%;
+                padding-bottom: 48px;
+            }
+
+            .artwork-image {
+                width: 98%;
+                margin: 0 auto;
+                transform: translate(20px, -27px);
+            }
+
+            .image-container {
+                margin-left: -16px;
+                padding: 16px;
+                padding-bottom: 64px;
+            }
+
+            #title {
+                font-size: 13px;
+                margin-left: 23px;
+            }
+
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-27px);
+            }
+
+            #nav a {
+                font-size: 13px;
+                padding-left: 110px;
+            }
+
+            .project-content {
+                padding-top: 0;
+            }
+
+            .project-title {
+                margin-top: -13px;
+                margin-bottom: 8px;
+            }
+
+            .project-title .quote {
+                font-size: 30px;
+            }
+
+            .project-title .text {
+                font-size: 30px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+            }
+
+            .author-info {
+                margin-top: 10px;
+                margin-bottom: 16px;
+            }
+
+            .project-description {
+                width: 95%;
+                margin-top: 16px;
+            }
+
+            .chinese-text {
+                font-size: 14px;
+                width: 95%;
+                margin-bottom: 32px;
+            }
+
+            .english-text {
+                font-size: 14px;
+                width: 95%;
+                margin-bottom: 32px;
+            }
+
+            .example-images {
+                margin-top: 0;
+                width: 98%;
+                margin-left: 2px;
+                margin-right: 0;
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .example-images img {
+                width: 15%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            #copyright {
+                font-size: 13px;
+                bottom: 5px;
+                left: 16px;
+            }
+
+            #icon {
+                bottom: 5px;
+                right: 37px;
+            }
+            #icon img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        /* 超寬螢幕 (1921px-2560px) */
+        @media (min-width: 1921px) and (max-width: 2560px) {
+            body {
+                max-width: 2560px;
+                margin: 0 auto;
+            }
+
+            .project-artwork {
+                padding-left: 0;
+                padding-top: 2rem;
+            }
+
+            .image-container {
+                margin-left: -48px;
+            }
+
+            .artwork-image {
+                transform: translate(20px, -27px);
+            }
+
+            #title {
+                font-size: 17px;
+                margin-left: 104px;
+            }
+
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-111px);
+            }
+
+            #nav a {
+                font-size: 17px;
+                padding-left: 140px;
+            }
+
+            .project-title .quote {
+                font-size: 45px;
+            }
+
+            .project-title .text {
+                font-size: 45px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+            }
+
+            .author-info p {
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            .project-description {
+                width: 95%;
+            }
+
+            .chinese-text {
+                font-size: 20px;
+                width: 100%;
+            }
+
+            .english-text {
+                font-size: 20px;
+                width: 100%;
+                letter-spacing: 0.2px;
+                word-spacing: 1px;
+            }
+
+            .example-images {
+                margin-top: 3rem;
+                width: 98%;
+                margin-left: 2px;
+                margin-right: 0;
+            }
+
+            .example-images img {
+                width: 15%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            #copyright {
+                font-size: 17px;
+                bottom: 5px;
+                left: 98px;
+            }
+
+            .author-info {
+                margin-bottom: 48px;
+            }
+
+            #icon {
+                bottom: 5px;
+                right: 125px;
+            }
+            #socialmedia a {
+            font-family: var(--font-violet);
+            color: #F12F9D;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        }
+
+        /* 4K螢幕 (2561px以上) */
+        @media (min-width: 2561px) {
+            body {
+                max-width: 2560px;
+                margin: 0 auto;
+            }
+
+            .project-artwork {
+                padding-left: 0;
+                padding-top: 2rem;
+            }
+
+            .image-container {
+                margin-left: -48px;
+            }
+
+            .artwork-image {
+                transform: translate(20px, -27px);
+            }
+
+            #title {
+                font-size: 17px;
+                margin-left: 104px;
+            }
+
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-111px);
+            }
+
+            #nav a {
+                font-size: 17px;
+                padding-left: 140px;
+            }
+
+            .project-title .quote {
+                font-size: 45px;
+            }
+
+            .project-title .text {
+                font-size: 45px;
+            }
+
+            .chinese-title {
+                font-size: 24px;
+            }
+
+            .author-info p {
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            .project-description {
+                width: 95%;
+            }
+
+            .chinese-text {
+                font-size: 20px;
+                width: 100%;
+            }
+
+            .english-text {
+                font-size: 20px;
+                width: 100%;
+                letter-spacing: 0.2px;
+                word-spacing: 1px;
+            }
+
+            .example-images {
+                margin-top: 3rem;
+                width: 98%;
+                margin-left: 2px;
+                margin-right: 0;
+            }
+
+            .example-images img {
+                width: 15%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            #copyright {
+                font-size: 17px;
+                bottom: 5px;
+                left: 98px;
+            }
+
+            .author-info {
+                margin-bottom: 48px;
+            }
+
+            #icon {
+                bottom: 5px;
+                right: 125px;
+            }
+            #socialmedia a {
+            font-family: var(--font-violet);
+            color: #F12F9D;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="title">
+            <span class="en">NTUB CDM GRADUATION EXHIBITION 2025</span>
+            <span class="zh">國立臺北商業大學商業設計管理系</span><span class="num">114</span><span class="zh">級畢業展</span>
+        </div>
+        <div id="nav">
+            <a href="#">ABOUT</a>
+            <a href="#">WORKS</a>
+            <a href="#">ARCHIVE</a>
+        </div>
+            </div>
+
+    <main>
+        <section class="project-showcase">
+            <div class="project-artwork">
+                <div class="artwork-background">
+                    <div class="image-container">
+                        <img src="./專刊-1.jpg" alt="專刊展示1" class="artwork-image">
+                        <img src="./專刊-2.jpg" alt="專刊展示2" class="artwork-image">
+                        <img src="./專刊-3.jpg" alt="專刊展示3" class="artwork-image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <h1 class="project-title"><span class="quote">3. </span><span class="text">Ease Fun 鬆</span></h1>
+                <div class="author-info">
+                    <p>林曾祥微</p>
+                    <p>石薇軒</p>
+                    <p>鄭玉玲</p>
+                    <p>潘宏逸</p>
+                    <p>王騰達</p>
+                </div>
+                
+                <div class="project-details">
+                    <div class="project-description">
+                        <p class="chinese-text">
+                            隨著全民健身的推廣和運動健康意識的提升,大家對於運動產生了更多的興趣，但運動也包含了熱身、實際操作、緩和放鬆這三大部分，人們常常會忽略了最後一項緩和放鬆這個部分。對於專業運動員、一般民眾、甚至是青少年，在運動時肌肉會收縮，而在高強度運動下會收縮的更厲害，當你剛運動完後身體有種腦內啡的成分能讓自己感受不到酸痛，但如果都沒有去做緩和放鬆，身體的肌肉會產生乳酸堆積而受傷，這樣反而得不償失，所以我們想要推廣滾筒及按摩球放鬆，他既不像拉筋伸展那麼的不適，也不會像筋膜槍價格過高，民眾沒有購買意願，讓大眾對於運動及自己的身體也更加的瞭解。
+</br>
+
+                        </p>
+                        <p class="english-text">
+                            As fitness grows in popularity, many people still overlook the importance of cool-downs. Without proper relaxation after exercise, lactic acid can build up, leading to soreness or injury.
+
+We promote foam rollers and massage balls as affordable, comfortable tools for muscle recovery—more accessible than fascia guns and easier to use than stretching. They help people care for their bodies and exercise more effectively.</br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer">
+        <div id="copyright">
+            <span class="copyright-symbol">©</span><span class="year-text">2025 國立臺北商業大學商業設計管理系114級畢業展</span>
+        </div>
+        <div id="icon">
+            <a href="https://www.instagram.com/ease_fun8/" target="_blank"><img src="IG.png"></a>
+            <img src="icon07.png" alt="icon07">
+            <img src="icon08.png" alt="icon08">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

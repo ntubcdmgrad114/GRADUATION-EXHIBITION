@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT</title>
+    <link rel="icon" type="image/x-icon" href="BBlogo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@200;400;700&family=IBM+Plex+Sans+TC+Text:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'IBM Plex Sans TC', sans-serif;
+        }
+     
+        body {
+			background-color:#B9FF2D;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 1920px;
+            padding: 0;
+            transform-origin: top;
+            transform: scale(0.9);
+            min-height: 100vh;
+            margin: 0 auto;
+        }
+        #header, #footer {
+			display: flex;
+			flex-direction: row;
+			justify-content:space-between;
+            background-color:#B9FF2D;
+            width: 100%;
+        }
+		#footer{
+			padding: 10px 20px;
+			margin: 0;
+			position: relative;
+			bottom: 0;
+			width: 100%;
+			background-color: #B9FF2D;
+		}
+		#header {
+			margin-top: 10px;
+			
+		}
+		#title{
+			font-family: 'IBM Plex Sans TC', sans-serif;
+			color:#8D8DFD;
+			text-align:left;
+			font-size:14px;
+			padding: 5px;
+			margin-top: 5px;
+			margin-left: -32px;
+		}
+		
+		#title .exhibition-name-1 {
+			font-family: 'VioletSans', sans-serif;
+		}
+		
+		#title .number {
+			font-family: 'VioletSans', sans-serif;
+		}
+		#nav {
+			text-align: right;
+			margin-right: 20px;
+			margin-left: -600px;
+			margin-top: 5px;
+			display: flex;
+			justify-content: flex-start;
+			transform: translateX(-170px);
+		}
+		#nav a {
+			font-family: 'VioletSans', sans-serif;
+			color: #8D8DFD;
+			display: inline-block;
+			text-decoration: none;
+			padding-right: 0;
+			padding-left: 80px;
+			margin: 5px auto;
+			text-align: center;
+			border-radius: 5px;
+			font-size: 16px;
+			transition: color 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+		}
+		#nav a:hover{
+			color: #5A5AFF;
+		}
+        #content {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            margin-bottom: 0;
+        }
+        #column {
+            flex: 1;
+			flex-direction: column;
+        }
+		#column h1{
+			font-family: 'IBM Plex Sans TC', sans-serif;
+			margin-top: 120px;
+			margin-left: -50px;  /* 從-30px改為-50px */
+			font-size: 60px;
+			color: #8D8DFD;
+			padding-right: 60px;
+			padding-left: 0;
+			font-weight: 400;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: -10px;
+		}
+		#column img{
+			margin-left: 50px;
+			width: 500px;
+			height: auto;
+			margin-top: 30px;
+		}
+		#text-content-CH {
+			font-size: 16px;
+			color: #8D8DFD;
+			margin-top: 80px;
+			margin-left: -50px;  /* 從-30px改為-50px */
+			padding-right: 60px;
+			padding-left: 0;
+			line-height: 1.4;
+			font-weight: 400;
+		}
+		#text-content-EN {
+			font-size: 16px;
+			color: #8D8DFD;
+			margin-top: 50px;
+			margin-left: -50px;  /* 從-30px改為-50px */
+			padding-right: 60px;
+			padding-left: 0;
+			line-height: 1.4;
+			font-weight: 400;
+			text-align: justify;
+			text-justify: inter-word;
+			word-spacing: 0.1em;
+			hyphens: auto;
+			-webkit-hyphens: auto;
+			-ms-hyphens: auto;
+			font-family: 'VioletSans', sans-serif;
+		}
+		#copyright {
+			color: #8D8DFD;
+			margin-left: 12px;
+		}
+		#copyright .copyright-symbol {
+			font-family: initial;  /* 使用瀏覽器預設字體 */
+		}
+		#copyright .year-text {
+			font-family: 'VioletSans', 'IBM Plex Sans TC', sans-serif;
+			margin-left: 5px;
+		}
+		#socialmedia {
+			flex: 1;
+			display: flex;
+			justify-content: flex-end;
+			padding: 0;
+			gap: 60px;
+			margin: 0 40px 0 0;
+		}
+		#socialmedia a {
+			font-family: 'VioletSans', sans-serif;
+			color: #8D8DFD;
+			display: inline-block;
+			text-decoration: none;
+			margin: 5px 0;
+			text-align: center;
+			transition: color 0.3s ease;
+		}
+		#socialmedia a:hover {
+			color: #5A5AFF;
+		}
+		#socialmedia a.instagram {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+		#socialmedia a.instagram img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+		#socialmedia a.facebook {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+		#socialmedia a.facebook img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+		#socialmedia a.website {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+		#socialmedia a.website img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+		#icon {
+			display: flex;
+			flex-direction: row;
+			margin-right: 5px;
+		}
+        #content > div:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #icon img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            margin: 0 8px;
+        }
+
+      
+
+        /* 一般手機 (320px-430px) */
+        @media (min-width: 320px) and (max-width: 430.98px) {
+            body {
+                max-width: 430.98px;
+                transform: none;
+                padding: 0 12px;
+            }
+            
+            #header {
+                position: relative;
+            }
+            
+            #nav {
+                position: fixed;  /* 固定導航欄 */
+                top: 10.5px;  /* 從10px改為15px，讓導航欄往下移動 */
+                right: 10px;
+                z-index: 1000;
+                background-color: transparent;
+                margin-left: 0;
+                transform: none;
+                display: flex;
+                gap: 15px;
+            }
+            
+            #nav a {
+                font-size: 9px;
+                padding-left: 0;
+                margin: 0;
+                white-space: nowrap;
+            }
+            
+            #title {
+                font-size: 9px;
+                line-height: 1.4;
+                padding: 4px;
+                margin-left: 5px;
+                margin-top: 2px;  /* 從-5px改為5px，讓標題往下移動 */
+            }
+
+            #title .exhibition-name-1 {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            #title .exhibition-name-2 {
+                display: block;
+            }
+            
+            #content {
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            #column {
+                width: 100%;
+            }
+            
+            #column h1 {
+                font-size: 40px;
+                margin-top: 80px;
+                margin-left: 0;
+                padding-left: 4px;
+            }
+            
+            #text-content-CH {
+                font-size: 12px;
+                padding-right: 25px;
+                margin-left: 0;
+                margin-top: 50px;
+                padding-left: 4px;
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 12px;
+                padding-right: 25px;
+                margin-left: 0;
+                margin-top: 25px;
+                padding-left: 4px;
+                line-height: 1.6;
+            }
+
+            #column img {
+                width: 90%;
+                max-width: 500px;
+                margin: 25px auto;
+                display: block;
+            }
+            
+            #footer {
+                width: 100%;
+                padding: 10px 20px;
+                margin-top: 30px;
+                position: relative;
+            }
+            
+            #copyright {
+                position: fixed;
+                bottom: 35px;
+                left: 20px;
+                z-index: 1000;
+                font-size: 9px;
+                background-color: transparent;
+                margin-left: 0;
+            }
+            
+            #socialmedia {
+                display: flex;
+                justify-content: flex-start;
+                gap: 25px;
+                margin: 0;
+                padding: 0;
+                margin-left: -11px;
+                margin-top: 50px;
+            }
+            
+            #socialmedia a {
+                font-size: 9px;
+                margin: 0;
+            }
+
+            #icon {
+                display: none;
+            }
+        }
+
+        /* 大型手機 (431px-480px) */
+        @media (min-width: 431px) and (max-width: 480.98px) {
+            body {
+                max-width: 480.98px;
+                transform: none;
+                padding: 0 12px;
+            }
+            
+            #header {
+                position: relative;
+            }
+            
+            #nav {
+                position: fixed;  /* 固定導航欄 */
+                top: 10px;
+                right: 10px;  /* 從20px改為10px */
+                z-index: 1000;
+                background-color: transparent;
+                margin-left: 0;
+                transform: none;
+                display: flex;
+                gap: 15px;  /* 從25px改為15px，縮小間距 */
+            }
+            
+            #nav a {
+                font-size: 9px;
+                padding-left: 0;
+                margin: 0;
+                white-space: nowrap;  /* 確保文字不換行 */
+            }
+
+            #footer {
+                width: 100%;
+                padding: 10px 20px;
+                margin-top: 30px;
+                position: relative;
+            }
+            
+            #copyright {
+                position: fixed;  /* 固定版權文字 */
+                bottom: 25px;  /* 調整位置，增加與社交媒體的間距 */
+                left: 20px;
+                z-index: 1000;
+                font-size: 9px;
+                background-color: transparent;
+                margin-left: 0;
+            }
+            
+            #socialmedia {
+                display: flex;
+                justify-content: flex-start;
+                gap: 25px;
+                margin: 0;
+                padding: 0;
+                margin-left: -10.5px;
+                margin-top: 50px;
+            }
+            
+            #socialmedia a {
+                font-size: 9px;
+                margin: 0;
+            }
+            
+            #title {
+                font-size: 9px;
+                line-height: 1.4;
+                padding: 4px;  /* 從8px改為4px */
+                margin-left: 20px;
+                margin-top: 2px;  /* 添加負的上邊距 */
+            }
+            
+            #title .exhibition-name-1 {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            #title .exhibition-name-2 {
+                display: block;
+            }
+            
+            #content {
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            #column {
+                width: 100%;
+            }
+            
+            #column h1 {
+                font-size: 25px;
+                margin-top: 80px;
+                margin-left: 0;
+                padding-left: 4px;
+            }
+            
+            #column img {
+                width: 85%;  /* 從90%改為75% */
+                max-width: 450px;  /* 從500px改為400px */
+                margin: 25px auto;
+                display: block;
+            }
+            
+            #text-content-CH {
+                font-size: 12px;
+                padding-right: 25px;
+                margin-left: 0;
+                margin-top: 50px;
+                padding-left: 4px;
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 12px;
+                padding-right: 25px;
+                margin-left: 0;
+                margin-top: 25px;
+                padding-left: 4px;
+                line-height: 1.6;
+            }
+            
+            #icon {
+                display: none;
+            }
+        }
+
+        /* 平板 (768px-1023px) */
+        @media (min-width: 768px) and (max-width: 1023.98px) {
+            body {
+                max-width: 1023.98px;
+                transform: none;
+            }
+            
+            #header {
+                position: relative;
+            }
+            
+            #nav {
+                position: fixed;  /* 固定導航欄 */
+                top: 10px;  /* 從15px改為10px，往上移動 */
+                right: 20px;
+                z-index: 1000;
+                background-color: transparent;
+                margin-left: 0;
+                transform: none;
+                display: flex;
+                gap: 60px;
+            }
+            
+            #nav a {
+                font-size: 13px;
+                padding-left: 0;
+            }
+
+            #copyright {
+                position: fixed;  /* 固定版權文字 */
+                bottom: 15px;
+                left: 20px;
+                z-index: 1000;
+                font-size: 13px;
+                background-color: transparent;
+                margin-left: 0;
+            }
+            
+            #title {
+                font-size: 13px;
+                margin-left: 50px;
+                line-height: 1.5;
+            }
+
+            #title .exhibition-name-1 {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            #title .exhibition-name-2 {
+                display: block;
+            }
+            
+            #content {
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            #column {
+                width: 100%;
+            }
+            
+            #column h1 {
+                font-size: 45px;
+                margin-top: 100px;
+                margin-left: 35px;
+            }
+            
+            #text-content-CH {
+                font-size: 14px;
+                padding-right: 60px;
+                margin-left: 35px;
+                margin-top: 60px;
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 14px;
+                padding-right: 60px;
+                margin-left: 35px;
+                margin-top: 25px;
+                line-height: 1.6;
+            }
+
+            #column img {
+                width: 85%;
+                max-width: 540px;
+                margin: 30px auto;
+                display: block;
+            }
+            
+            #socialmedia {
+                gap: 25px;
+                margin-right: 20px;
+            }
+
+            #footer {
+                width: 100%;
+                padding: 10px 20px;
+                margin-top: 30px;
+                position: relative;
+            }
+
+            #socialmedia a {
+                font-size: 13px;
+            }
+
+            #icon {
+                display: none;
+            }
+        }
+
+        /* 小型筆電 (1024px-1280px) */
+        @media (min-width: 1024px) and (max-width: 1280.98px) {
+            body {
+                max-width: 1440px;
+                transform: none;
+                transform-origin: top;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                
+                margin: 0 auto;
+            }
+            
+            #title {
+                font-size: 11px;
+                margin-left: 55px;
+            }
+            
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-80px);
+                margin-top: 10px;
+            }
+            
+            #nav a {
+                font-size: 11px;
+                padding-left: 90px;
+                margin: 5px auto;
+            }
+            
+            #column h1 {
+                font-size: 35px;
+                margin-left: 40px;
+                margin-top: 140px;
+            }
+            
+            #column img {
+                width: 500px;
+                margin-top: 22px;
+                margin-left: 0px;
+            }
+            
+            #text-content-CH {
+                font-size: 13px;
+                padding-right: 40px;
+                margin-left: 40px;
+                margin-top: 100px;
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 13px;
+                padding-right: 40px;
+                margin-left: 40px;
+                margin-top: 40px;
+                line-height: 1.6;
+            }
+            
+            #socialmedia {
+                gap: 50px;
+            }
+
+            #content {
+                flex: 1;
+                display: flex;
+                margin: 0 auto;
+                max-width: 1440px;
+                margin-bottom: 60px;
+            }
+
+            #footer {
+                width: 100%;
+                padding: 10px 20px;
+                background-color: #B9FF2D;
+                margin: 0;
+                max-width: 1440px;
+                position: relative;
+                bottom: 0;
+            }
+
+            #copyright {
+                margin-left: 38px;
+                font-size: 11px;
+            }
+
+            #icon {
+                margin-right: 38px;
+            }
+
+            #icon img {
+                width: 25px;
+                height: 25px;
+            }
+
+            #socialmedia a {
+                font-size: 11px;
+            }
+        }
+
+        /* 一般筆電 (1281px-1440px) */
+        @media (min-width: 1281px) and (max-width: 1440.98px) {
+            body {
+                max-width: 1440px;
+                transform: none;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                width: 100%;
+            }
+            
+            #title {
+                font-size: 13px;
+                margin-left: 55px;
+            }
+            
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-130px);
+            }
+            
+            #nav a {
+                font-size: 13px;
+                padding-left: 110px;
+            }
+            
+            #column h1 {
+                font-size: 45px;
+                margin-left: 40px;
+                margin-top: 100px;  /* 從140px改為100px */
+            }
+            
+            #column img {
+                width: 425px;  /* 從550px改為450px */
+                margin-top: -5px;
+                margin-left: 0;
+            }
+            
+            #text-content-CH {
+                font-size: 14px;
+                padding-right: 60px;
+                margin-left: 40px;
+                margin-top: 40px;  /* 從60px改為40px */
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 14px;
+                padding-right: 60px;
+                margin-left: 40px;
+                margin-top: 15px;  /* 從25px改為15px */
+                line-height: 1.6;
+            }
+            
+            #socialmedia {
+                gap: 80px;
+                margin-right: 120px;
+                margin-left: -165px;
+            }
+
+            #content {
+                flex: 1;
+                display: flex;
+                margin: 0 auto;
+                max-width: 1440px;
+                margin-bottom: 0;
+                width: 100%;
+            }
+
+            #footer {
+                width: 100%;
+                padding: 10px 20px;
+                background-color: #B9FF2D;
+                margin: 0;
+                max-width: 1440px;
+            }
+
+            #copyright {
+                margin-left: 40px;
+                font-size: 13px;
+            }
+
+            #icon {
+                margin-right: 38px;
+            }
+
+            #icon img {
+                width: 25px;
+                height: 25px;
+            }
+
+            #socialmedia a {
+                font-size: 13px;
+            }
+        }
+
+        /* 桌機標準螢幕 (1441px-1920px) */
+        @media (min-width: 1441px) and (max-width: 1920px) {
+            body {
+                max-width: 1920px;
+                transform: none;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+            }
+            
+            #title {
+                font-size: 13px;
+                margin-left: 55px;
+            }
+            
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-160px);
+            }
+            
+            #nav a {
+                font-size: 13px;
+                padding-left: 110px;
+            }
+            
+            #column h1 {
+                font-size: 45px;
+                margin-left: 40px;
+                margin-top: 140px;
+            }
+            
+            #column img {
+                width: 470px;
+                margin-top: -5px;
+            }
+            
+            #text-content-CH {
+                font-size: 14px;
+                padding-right: 60px;
+                margin-left: 40px;
+                margin-top: 60px;
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 14px;
+                padding-right: 60px;
+                margin-left: 40px;
+                margin-top: 25px;
+                line-height: 1.6;
+            }
+            
+            #socialmedia {
+                gap: 80px;
+                margin-right: 120px;
+                margin-left: -165px;
+            }
+
+            #content {
+                flex: 1;
+                display: flex;
+                margin: 0 auto;
+                max-width: 1920px;
+                margin-bottom: 0;
+            }
+
+            #footer {
+                width: 100%;
+                padding: 10px 20px;
+                background-color: #B9FF2D;
+                margin: 0;
+            }
+
+            #copyright {
+                margin-left: 40px;
+                font-size: 13px;
+            }
+
+            #icon {
+                margin-right: 38px;
+            }
+
+            #icon img {
+                width: 25px;
+                height: 25px;
+            }
+
+            #socialmedia a {
+                font-size: 13px;
+            }
+        }
+
+        /* 超寬螢幕 (1921px-2560px) */
+        @media (min-width: 1921px) and (max-width: 2560px) {
+            body {
+                max-width: 1920px;
+                margin: 0 auto;
+                transform: none;
+            }
+            
+            #title {
+                font-size: 17px;
+                margin-left: -35px;
+            }
+            
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-170px);
+            }
+            
+            #nav a {
+                font-size: 17px;
+                padding-left: 140px;
+            }
+            
+            #column h1 {
+                font-size: 60px;
+                margin-left: -50px;
+                margin-top: 220px;
+            }
+            
+            #column img {
+                width: 650px;
+                margin-top: 5px;
+            }
+            
+            #text-content-CH {
+                font-size: 17px;
+                padding-right: 60px;
+                margin-left: -50px;
+                margin-top: 90px;
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 17px;
+                padding-right: 60px;
+                margin-left: -50px;
+                margin-top: 35px;
+                line-height: 1.6;
+            }
+            
+            #socialmedia {
+                gap: 100px;
+                margin-right: 165px;
+                margin-left: -165px;
+            }
+
+            #content {
+                flex: 1;
+                display: flex;
+                margin: 0 auto;
+                max-width: 1920px;
+            }
+
+            #footer {
+                padding: 10px 20px;
+                width: 100%;
+                margin: 0 auto;
+                max-width: 1920px;
+                background-color: #B9FF2D;
+            }
+
+            #copyright {
+                margin-left: -55px;
+            }
+
+            #icon {
+                margin-right: 45px;
+            }
+        }
+
+        /* 4K螢幕 (2561px以上) */
+        @media (min-width: 2561px) {
+            body {
+                max-width: 2561px;
+                margin: 0 auto;
+                transform: none;
+            }
+            
+            #title {
+                font-size: 16px;
+                margin-left: -35px;
+            }
+            
+            #nav {
+                margin-left: -600px;
+                transform: translateX(-170px);
+            }
+            
+            #nav a {
+                font-size: 17px;
+                padding-left: 140px;
+            }
+            
+            #column h1 {
+                font-size: 60px;
+                margin-left: -50px;
+                margin-top: 220px;
+            }
+            
+            #column img {
+                width: 650px;
+                margin-top: 5px;
+            }
+            
+            #text-content-CH {
+                font-size: 17px;
+                padding-right: 60px;
+                margin-left: -50px;
+                margin-top: 90px;
+                line-height: 1.6;
+            }
+            
+            #text-content-EN {
+                font-size: 17px;
+                padding-right: 60px;
+                margin-left: -50px;
+                margin-top: 35px;
+                line-height: 1.6;
+            }
+            
+            #socialmedia {
+                gap: 100px;
+                margin-right: 165px;
+                margin-left: -165px;
+            }
+
+            #content {
+                flex: 1;
+                display: flex;
+                margin: 0 auto;
+                max-width: 1920px;
+            }
+
+            #footer {
+                padding: 10px 20px;
+                width: 100%;
+                margin: 0 auto;
+                max-width: 1920px;
+                background-color: #B9FF2D;
+            }
+
+            #copyright {
+                margin-left: -55px;
+            }
+
+            #icon {
+                margin-right: 45px;
+            }
+        }
+
+        #column h1 span.en {
+            font-family: 'VioletSans', sans-serif;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 0.03em;
+        }
+
+        #column h1 span.cn {
+            font-family: 'IBM Plex Sans TC Text', sans-serif;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 0.05em;
+        }
+
+    </style>
+    <style>
+        @font-face {
+            font-family: 'VioletSans';
+            src: url('VioletSans-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+		<div id="title">
+			<span class="exhibition-name-1">NTUB CDM GRADUATION EXHIBITION 2025</span>
+			<span class="exhibition-name-2">國立臺北商業大學商業設計管理系<span class="number">114</span>級畢業展</span>
+		</div>
+		<div id="nav">
+			<a href="#">ABOUT</a>
+			<a href="#">WORKS</a>
+			<a href="#">ARCHIVE</a>
+		</div>
+	</div>
+		
+    <div id="content">
+        <div id="column">
+			<div>
+				<h1>
+					<span class="en">BEYOND BOUNDARIES</span>
+					<span class="cn">邊界以外</span>
+				</h1>
+			</div>
+			<div id="text-content-CH">
+				「邊界以外」象徵著學生們不斷突破既有框架，展現自身價值與潛力。
+如同本系以創新設計思維創造商業價值，學生們的創作涵蓋多元領域，
+藉由突破各種有形無形的界線，到達邊界以外的理想狀態。
+
+每件作品不僅是設計技巧的展現，
+更是學生勇敢突破障礙、開創新局的證明。
+			</div>
+			<div id="text-content-EN">
+				"Beyond Boundaries" represents the continuous effort of students to break through existing frameworks and showcase their unique value and potential.
+Just as our department generates commercial value through innovative design thinking, students' creations span across various fields.
+By transcending both visible and invisible boundaries, we aim to reach a state beyond limitations.
+
+Each work is not only a demonstration of design skills,
+but also a testament to the students' courage to overcome obstacles and create new possibilities.
+			</div>
+		</div>
+        <div id="column">
+			<img src="beyond-boundaries-poster.png" alt="Beyond Boundaries Poster">
+		</div>
+    </div>
+    <div id="footer">
+		<div id="copyright">
+			<span class="copyright-symbol">©</span><span class="year-text">2025 國立臺北商業大學商業設計管理系114級畢業展</span>
+		</div>
+		<div id="socialmedia">
+			<a href="https://www.instagram.com/ntub_cdm_grad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram">
+				<img src="IG2.png" alt="Instagram Logo">
+				INSTAGRAM
+			</a>
+			<a href="https://www.facebook.com/ntubcdmexhibition" target="_blank" class="facebook">
+				<img src="FB2.png" alt="Facebook Logo">
+				FACEBOOK
+			</a>
+			<a href="https://cdm.ntub.edu.tw/index.php?cookiesession8341=G1I9YG9ECN0X7CMTGYUSJFNKAXGDD4YJ" target="_blank" class="website">
+				<img src="CDMLOGO.png" alt="CDM Logo">
+				NTUB CDM
+			</a>
+		</div>
+		<div id="icon">
+			<img src="icon03.png">
+			<img src="icon04.png">
+		</div>
+	</div>
+</body>
+</html>
+
+
