@@ -1146,8 +1146,10 @@
 			mask.classList.add("image-mask");
 			mask.href = maskLinks[index] || "#";
 			mask.target = "_blank";
-			mask.style.pointerEvents = "none"; // 防止覆蓋層直接觸發點擊
 
+		if ('ontouchstart' in window) {
+				mask.style.pointerEvents = "none";
+			}
             // 添加名字元素
             const nameElement = document.createElement("div");
             nameElement.classList.add("mask-name");
